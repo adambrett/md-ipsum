@@ -41,7 +41,7 @@
 $header-height: 60px;
 
 body {
-    padding-top: ($header-height + $typecsset-magic-number);
+    padding-top: ($header-height + ($typecsset-magic-number * 2));
 }
 
 header {
