@@ -3,7 +3,7 @@ SASS = sass --no-cache
 SCULPIN = sculpin generate
 GIT = git
 
-REPO_URL = git@github.com:adambrett/md-ipsum.git
+REPO_URL = git@github.com:adambrett/md-ipsum.com.git
 DEPLOY_BRANCH = gh-pages
 
 THEME_DIRECTORY = source/themes/adambrett/md-ipsum.com
@@ -14,7 +14,7 @@ CSS_FILE = ${CSS_DIRECTORY}/style.css
 OUTPUT_PROD = output_prod
 OUTPUT_DEV = output_dev
 
-all: scss build deploy clean
+all: clean scss build deploy clean
 
 scss:
 	${SASS} --style compressed ${SCSS_FILE} ${CSS_FILE}
