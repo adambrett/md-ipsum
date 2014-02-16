@@ -1,0 +1,164 @@
+@import "../../bower_components/normalize-css/normalize.css";
+@import "../../bower_components/mrmrs-colors/sass/colors.scss";
+@import "../../bower_components/typecsset/typecsset.scss";
+
+@import "animate.scss";
+
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+%clearfix:before,
+%clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+%clearfix:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+%clearfix {
+    *zoom: 1;
+}
+
+%vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+$header-height: 60px;
+
+body {
+    padding-top: ($header-height + $typecsset-magic-number);
+}
+
+header {
+    @extend %clearfix;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    padding: ($typecsset-magic-number / 2) $typecsset-magic-number;
+
+    background: $black;
+
+    h1 {
+        display: block;
+        float: left;
+
+        margin-bottom: 0;
+
+        color: $white;
+        line-height: ($header-height + 4px);
+
+        span {
+            display: inline-block;
+
+            height: $header-height;
+            width: 100px;
+
+            background: url(../images/logo.png) no-repeat -2px $white;
+
+            text-indent: -999em;
+        }
+    }
+
+    .advertise {
+        float: right;
+
+        height: 64px;
+        width: 128px;
+
+        font-size: 1.6em;
+        font-weight: bold;
+        line-height: 1.1em;
+        text-align: center;
+
+        background: $white;
+
+        p {
+            @extend %vertical-align;
+
+            margin-bottom: 0;
+        }
+    }
+}
+
+main {
+    @extend %clearfix;
+
+    padding: 0 $typecsset-magic-number $typecsset-magic-number;
+}
+
+fieldset {
+    float: left;
+    width: 31%;
+
+    margin: 0 1% $typecsset-magic-number;
+    padding: 0;
+
+    border: 1px solid $black;
+
+    legend {
+        display: block;
+
+        margin: ($typecsset-magic-number / 2) 0 0 ($typecsset-magic-number / 2);
+        padding: 1%;
+
+        border: 1px solid  $black;
+
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+}
+
+textarea {
+    display: block;
+    width: 98%;
+
+    margin: 0 auto;
+    padding: 1%;
+
+    border: none;
+
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 0.8em;
+    line-height: 1.1em;
+}
+
+#copied {
+    display: none;
+
+    position: fixed;
+    top: $typecsset-magic-number * 3;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: $typecsset-magic-number / 2;
+
+    border: 1px solid darken($gray, 25%);
+    border-radius: 4px;
+
+    background: $gray;
+
+    color: $white;
+
+    p {
+        margin-bottom: 0;
+    }
+}

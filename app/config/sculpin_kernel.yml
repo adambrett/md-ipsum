@@ -1,0 +1,5 @@
+sculpin_content_types:
+    ipsums:
+        layout: default
+sculpin_theme:
+    theme: adambrett/md-ipsum.com
