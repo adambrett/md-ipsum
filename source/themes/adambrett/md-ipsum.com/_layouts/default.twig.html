@@ -61,22 +61,22 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="{{ theme_path("bower_components/zeroclipboard/ZeroClipboard.min.js") }}"></script>
     <script>
-    ZeroClipboard.config({
-        moviePath: '{{ theme_path("bower_components/zeroclipboard/ZeroClipboard.swf") }}',
-        forceHandCursor: true
-    });
+        ZeroClipboard.config({
+            moviePath: '{{ theme_path("bower_components/zeroclipboard/ZeroClipboard.swf") }}',
+            forceHandCursor: true
+        });
 
-    $('legend').each(function(element) {
-        var client = new ZeroClipboard($(this));
+        $('legend').each(function(element) {
+            var client = new ZeroClipboard($(this));
 
-        client.on('complete', function(client, text) {
-            $('#copied').fadeIn(500, function() {
-                setTimeout(function () {
-                    $('#copied').fadeOut(500);
-                }, 500);
+            client.on('complete', function(client, text) {
+                $('#copied').fadeIn(500, function() {
+                    setTimeout(function () {
+                        $('#copied').fadeOut(500);
+                    }, 500);
+                });
             });
         });
-    });
     </script>
 
     {% if site.google_analytics_tracking_id %}
