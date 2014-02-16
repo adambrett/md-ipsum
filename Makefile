@@ -15,7 +15,7 @@ CSS_FILE = ${CSS_DIRECTORY}/style.css
 OUTPUT_PROD = output_prod
 OUTPUT_DEV = output_dev
 
-all: clean scss build deploy
+all: clean scss build
 
 scss:
 	${SASS} --style compressed ${SCSS_FILE} ${CSS_FILE}
@@ -29,7 +29,9 @@ server:
 build:
 	${SCULPIN} --env=prod
 
-deploy:
+deploy: all deploy-git
+
+deploy-git:
 	cd ${OUTPUT_PROD}; rm -rf _ipsums
 	cd ${OUTPUT_PROD}; ${GIT} init
 	cd ${OUTPUT_PROD}; ${GIT} remote add origin ${REPO_URL}
