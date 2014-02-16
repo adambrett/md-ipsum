@@ -14,9 +14,12 @@
         <meta name="description" content="{{ site.description }}">
     {% endif %}
 
+    <link rel="stylesheet" href="{{ theme_path("bower_components/normalize-css/normalize.css") }}">
+
     {% for stylesheet in theme_paths("assets/css/style.css") %}
         <link rel="stylesheet" href="{{ site.url }}/{{ stylesheet }}">
     {% endfor %}
+
 
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

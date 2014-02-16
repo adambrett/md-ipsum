@@ -8,7 +8,8 @@ DEPLOY_BRANCH = gh-pages
 
 THEME_DIRECTORY = source/themes/adambrett/md-ipsum.com
 CSS_DIRECTORY = ${THEME_DIRECTORY}/assets/css
-SCSS_FILE = ${CSS_DIRECTORY}/style.scss
+SCSS_DIRECTORY = ${THEME_DIRECTORY}/assets/scss
+SCSS_FILE = ${SCSS_DIRECTORY}/style.scss
 CSS_FILE = ${CSS_DIRECTORY}/style.css
 
 OUTPUT_PROD = output_prod

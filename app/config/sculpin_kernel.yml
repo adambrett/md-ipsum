@@ -1,3 +1,6 @@
+sculpin:
+    exclude:
+        - themes/adambrett/md-ipsum.com/assets/scss/
 sculpin_content_types:
     ipsums:
         layout: default
