@@ -17,10 +17,13 @@ OUTPUT_DEV = output_dev
 
 all: clean scss build
 
-scss:
+css-dir:
+	mkdir -p source/themes/adambrett/md-ipsum.com/assets/css
+
+scss: css-dir
 	${SASS} --style compressed ${SCSS_FILE} ${CSS_FILE}
 
-scss-pretty:
+scss-pretty: css-dir
 	${SASS} ${SCSS_FILE} ${CSS_FILE}
 
 server:
@@ -42,4 +45,5 @@ deploy-git:
 	rm -rf ${OUTPUT_PROD} ${OUTPUT_DEV}
 
 clean:
+	rm -rf source/themes/adambrett/md-ipsum.com/assets/css
 	rm -rf ${OUTPUT_PROD} ${OUTPUT_DEV}
