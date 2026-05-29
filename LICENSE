@@ -1,27 +1,26 @@
-Copyright (c) 2014, Adam Brett
-All rights reserved.
+Markdown Ipsum
 
-Redistribution and use in source and binary forms, with or without modification,
-are permitted provided that the following conditions are met:
+Copyright (c) 2014 Adam Brett
 
-* Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
+This licence covers the site itself — its templates, styles, scripts, and
+design. The markdown snippets under content/ are licensed separately under the
+BSD 3-Clause License; see content/LICENSE.
 
-* Redistributions in binary form must reproduce the above copyright notice, this
-  list of conditions and the following disclaimer in the documentation and/or
-  other materials provided with the distribution.
+The site is licensed under the Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0).
 
-* Neither the name of the {organization} nor the names of its
-  contributors may be used to endorse or promote products derived from
-  this software without specific prior written permission.
+You are free to:
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
-ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
-ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  - Share — copy and redistribute the material in any medium or format.
+  - Adapt — remix, transform, and build upon the material (forks, contributions,
+    and pull requests are welcome).
+
+Under the following terms:
+
+  - Attribution — give appropriate credit.
+  - NonCommercial — do not use the material for commercial purposes (for
+    example, hosting a clone with advertising, or reselling it).
+  - ShareAlike — distribute derivative works under this same licence.
+
+Full licence: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+Summary:      https://creativecommons.org/licenses/by-nc-sa/4.0/
