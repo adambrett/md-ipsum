@@ -1,0 +1,161 @@
+:root {
+  --black: #111;
+  --white: #fff;
+  --gray: #aaa;
+  --gray-dark: #606060;
+
+  --rhythm: 24px;
+  --header-height: 60px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  padding-top: calc(var(--header-height) + (var(--rhythm) * 2));
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+  color: var(--black);
+  background: var(--white);
+}
+
+/* Fixed top bar */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: calc(var(--rhythm) / 2) var(--rhythm);
+  background: var(--black);
+  transition: transform 0.3s linear;
+}
+
+header.is-pinned {
+  transform: translateY(0);
+}
+
+header.is-unpinned {
+  transform: translateY(-100%);
+}
+
+header h1 {
+  display: block;
+  float: left;
+  margin: 0;
+  color: var(--white);
+  line-height: calc(var(--header-height) + 4px);
+}
+
+header h1 span {
+  display: inline-block;
+  height: var(--header-height);
+  width: 100px;
+  background: url(/images/logo.png) no-repeat -2px center var(--white);
+  text-indent: -999em;
+  vertical-align: middle;
+}
+
+header::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Snippet grid */
+main {
+  padding: 0 var(--rhythm) var(--rhythm);
+}
+
+main::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+fieldset {
+  float: left;
+  width: 31%;
+  margin: 0 1% var(--rhythm);
+  padding: 0;
+  border: 1px solid var(--black);
+}
+
+fieldset legend {
+  display: block;
+  margin: calc(var(--rhythm) / 2) 0 0 calc(var(--rhythm) / 2);
+  padding: 1%;
+  border: 1px solid var(--black);
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+fieldset legend:hover,
+fieldset legend:focus {
+  background: var(--black);
+  color: var(--white);
+  outline: none;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1%;
+  border: none;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 0.8em;
+  line-height: 1.1em;
+  background: var(--white);
+  color: var(--black);
+  resize: vertical;
+}
+
+/* "Copied" toast */
+#copied {
+  position: fixed;
+  top: calc(var(--rhythm) * 3);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: calc(var(--rhythm) / 2);
+  border: 1px solid var(--gray-dark);
+  border-radius: 4px;
+  background: var(--gray);
+  color: var(--white);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s linear, visibility 0.3s linear;
+}
+
+#copied.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#copied p {
+  margin: 0;
+}
+
+/* Stack the grid on small screens (the original was desktop-only). */
+@media (max-width: 900px) {
+  fieldset {
+    width: 48%;
+  }
+}
+
+@media (max-width: 600px) {
+  fieldset {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,14 @@
+baseURL = "https://md-ipsum.adbr.dev/"
+languageCode = "en-gb"
+title = "Markdown Ipsum"
+
+enableRobotsTXT = true
+printPathWarnings = true
+
+# Single-page site: no taxonomies or term pages.
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  tagline = "Quickfire Markdown Copy + Paste"
+  description = "Copy + pasteable markdown lorem ipsum examples."
+  github = "https://github.com/adambrett/md-ipsum"

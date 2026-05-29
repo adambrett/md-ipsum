@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{ if .IsHome }}
+        <title>{{ site.Title }} - {{ site.Params.tagline }}</title>
+    {{ else }}
+        <title>{{ .Title }} - {{ site.Title }}</title>
+    {{ end }}
+
+    {{ with site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+
+    <link rel="icon" href="{{ "favicon.ico" | relURL }}">
+
+    {{ with resources.Get "css/style.css" }}
+        {{ if hugo.IsServer }}
+            <link rel="stylesheet" href="{{ .RelPermalink }}">
+        {{ else }}
+            {{ with . | minify | fingerprint }}
+                <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+            {{ end }}
+        {{ end }}
+    {{ end }}
+</head>
+
+<body>
+    <header>
+        <h1><span>Markdown</span> Ipsum</h1>
+    </header>
+
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <div id="copied" role="status" aria-live="polite">
+        <p>Copied to clipboard</p>
+    </div>
+
+    {{ with resources.Get "js/site.js" }}
+        {{ $js := . }}
+        {{ if not hugo.IsServer }}{{ $js = $js | minify | fingerprint }}{{ end }}
+        <script src="{{ $js.RelPermalink }}"{{ if not hugo.IsServer }} integrity="{{ $js.Data.Integrity }}"{{ end }} defer></script>
+    {{ end }}
+</body>
+</html>

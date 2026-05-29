@@ -1,49 +1,37 @@
-#Default calls
-SASS = sass --no-cache
-SCULPIN = sculpin generate
-GIT = git
+export
 
-REPO_URL = git@github.com:adambrett/md-ipsum.com.git
-DEPLOY_BRANCH = gh-pages
+SHELL := /bin/bash -o errexit -o nounset -o pipefail
 
-THEME_DIRECTORY = source/themes/adambrett/md-ipsum.com
-CSS_DIRECTORY = ${THEME_DIRECTORY}/assets/css
-SCSS_DIRECTORY = ${THEME_DIRECTORY}/assets/scss
-SCSS_FILE = ${SCSS_DIRECTORY}/style.scss
-CSS_FILE = ${CSS_DIRECTORY}/style.css
+MAKEFLAGS += --warn-undefined-variables
+MAKEFLAGS += --no-builtin-rules
 
-OUTPUT_PROD = output_prod
-OUTPUT_DEV = output_dev
+VERBOSE ?= false
+ifeq (${VERBOSE}, false)
+	# --silent drops the need to prepend @
+	MAKEFLAGS += --silent
+endif
 
-all: clean scss build
+# Tools
+HUGO := hugo
 
-css-dir:
-	mkdir -p source/themes/adambrett/md-ipsum.com/assets/css
+# Output
+PUBLIC := public
 
-scss: css-dir
-	${SASS} --style compressed ${SCSS_FILE} ${CSS_FILE}
+.PHONY: all
+all: build ## Build the site
 
-scss-pretty: css-dir
-	${SASS} ${SCSS_FILE} ${CSS_FILE}
+.PHONY: run
+run: ## Serve the site locally with live reload
+	${HUGO} server --buildDrafts --disableFastRender
 
-server:
-	${SCULPIN} --watch --server
+.PHONY: build
+build: ## Build the production site into public/
+	${HUGO} --minify --gc --printPathWarnings
 
-build:
-	${SCULPIN} --env=prod
+.PHONY: clean
+clean: ## Remove build artefacts
+	rm -rf ${PUBLIC} resources .hugo_build.lock
 
-deploy: all deploy-git
-
-deploy-git:
-	cd ${OUTPUT_PROD}; rm -rf _ipsums
-	cd ${OUTPUT_PROD}; ${GIT} init
-	cd ${OUTPUT_PROD}; ${GIT} remote add origin ${REPO_URL}
-	cd ${OUTPUT_PROD}; ${GIT} checkout -b ${DEPLOY_BRANCH}
-	cd ${OUTPUT_PROD}; ${GIT} add -A
-	cd ${OUTPUT_PROD}; ${GIT} commit -m 'Deploy'
-	cd ${OUTPUT_PROD}; ${GIT} push -f origin ${DEPLOY_BRANCH}
-	rm -rf ${OUTPUT_PROD} ${OUTPUT_DEV}
-
-clean:
-	rm -rf source/themes/adambrett/md-ipsum.com/assets/css
-	rm -rf ${OUTPUT_PROD} ${OUTPUT_DEV}
+.PHONY: help
+help:
+	awk 'BEGIN {FS = ":.*##"} /^[a-zA-Z_-]+:.*?##/ { printf "\033[36m%-20s\033[0m %s\n", $$1, $$2 }' $(MAKEFILE_LIST)

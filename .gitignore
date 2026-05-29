@@ -1,1 +1,14 @@
-output_*
+# Hugo
+public/
+resources/
+.hugo_build.lock
+.hugo_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
