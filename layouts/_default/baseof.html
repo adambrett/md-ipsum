@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>document.documentElement.classList.add("js");</script>
 
     {{ if .IsHome }}
         <title>{{ site.Title }} - {{ site.Params.tagline }}</title>
@@ -41,7 +42,8 @@
             <h1 class="site-nav__brand">
                 <img class="site-nav__logo" src="{{ "images/logo.png" | relURL }}" alt="Markdown" width="104" height="64"> Ipsum
             </h1>
-            <ul class="site-nav__flavours">
+            <button class="site-nav__burger" type="button" aria-expanded="false" aria-controls="site-flavours" aria-label="Flavours menu">☰</button>
+            <ul class="site-nav__flavours" id="site-flavours">
                 {{ range $flavours }}
                 <li><a href="{{ .url | relURL }}" data-flavour="{{ .slug }}"{{ if eq .slug $current }} aria-current="page"{{ end }}>{{ .label }}</a></li>
                 {{ end }}

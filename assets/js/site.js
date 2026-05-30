@@ -58,6 +58,31 @@
     document.querySelectorAll(".site-nav__flavours a")
   );
 
+  // --- Burger menu (small screens) -----------------------------------------
+  var burger = document.querySelector(".site-nav__burger");
+  var flavoursList = document.getElementById("site-flavours");
+
+  function closeMenu() {
+    if (!flavoursList) return;
+    flavoursList.classList.remove("is-open");
+    if (burger) burger.setAttribute("aria-expanded", "false");
+  }
+
+  if (burger && flavoursList) {
+    burger.addEventListener("click", function () {
+      var open = flavoursList.classList.toggle("is-open");
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") closeMenu();
+    });
+    document.addEventListener("click", function (event) {
+      if (!flavoursList.contains(event.target) && !burger.contains(event.target)) {
+        closeMenu();
+      }
+    });
+  }
+
   function remember(flavour) {
     try {
       localStorage.setItem(STORAGE_KEY, flavour);
@@ -127,6 +152,7 @@
         return;
       }
       event.preventDefault();
+      closeMenu();
       load(a.getAttribute("href"), a.getAttribute("data-flavour"), "push");
     });
   });

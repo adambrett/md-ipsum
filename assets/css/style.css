@@ -163,6 +163,61 @@ header {
   background: var(--red);
 }
 
+.site-nav__burger {
+  display: none;
+  width: 2em;
+  height: 2em;
+  padding: 0;
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--gray);
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.site-nav__burger:hover,
+.site-nav__burger:focus-visible {
+  border-color: var(--white);
+  color: var(--white);
+  outline: none;
+}
+
+@media (max-width: 800px) {
+  .key {
+    order: 1;
+    margin-inline-start: auto;
+  }
+
+  .site-nav__burger {
+    order: 2;
+  }
+
+  .js .site-nav__burger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-nav__flavours {
+    order: 3;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-inline-start: 0;
+    gap: calc(var(--rhythm) / 2);
+  }
+
+  .js .site-nav__flavours {
+    display: none;
+  }
+
+  .js .site-nav__flavours.is-open {
+    display: flex;
+  }
+}
+
 main {
   display: grid;
   grid-template-columns: repeat(var(--columns), 1fr);
