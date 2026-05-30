@@ -3,7 +3,7 @@
   --white: #fff;
   --gray: #aaa;
 
-  --accent: #ff4136;
+  --accent: #111;
 
   --rhythm: 24px;
   --columns: 3;
@@ -42,6 +42,13 @@ header {
   background: var(--black);
 }
 
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(var(--rhythm) / 2) var(--rhythm);
+}
+
 .site-nav__brand {
   display: flex;
   align-items: center;
@@ -56,6 +63,32 @@ header {
   width: auto;
   height: 1.5em;
   filter: invert(1);
+}
+
+.site-nav__flavours {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--rhythm) / 2) var(--rhythm);
+  margin: 0;
+  margin-inline-start: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav__flavours a {
+  color: var(--gray);
+  text-decoration: none;
+}
+
+.site-nav__flavours a:hover {
+  color: var(--white);
+}
+
+.site-nav__flavours a[aria-current="page"] {
+  color: var(--white);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
 }
 
 main {
