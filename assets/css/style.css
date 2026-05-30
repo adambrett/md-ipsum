@@ -1,11 +1,14 @@
+/* Markdown Ipsum — ported from the original Sculpin theme. */
+
 :root {
   --black: #111;
   --white: #fff;
   --gray: #aaa;
   --gray-dark: #606060;
 
-  --rhythm: 24px;
+  --rhythm: 24px; /* typecsset "magic number" */
   --header-height: 60px;
+  --columns: 3;
 }
 
 *,
@@ -21,7 +24,7 @@ html {
 
 body {
   margin: 0;
-  padding-top: calc(var(--header-height) + (var(--rhythm) * 2));
+  padding-block-start: calc(var(--header-height) + (var(--rhythm) * 2));
   font-family: Georgia, Cambria, "Times New Roman", Times, serif;
   color: var(--black);
   background: var(--white);
@@ -30,17 +33,12 @@ body {
 /* Fixed top bar */
 header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  inset: 0 0 auto;
   z-index: 10;
-  padding: calc(var(--rhythm) / 2) var(--rhythm);
+  padding-block: calc(var(--rhythm) / 2);
+  padding-inline: var(--rhythm);
   background: var(--black);
   transition: transform 0.3s linear;
-}
-
-header.is-pinned {
-  transform: translateY(0);
 }
 
 header.is-unpinned {
@@ -48,8 +46,6 @@ header.is-unpinned {
 }
 
 header h1 {
-  display: block;
-  float: left;
   margin: 0;
   color: var(--white);
   line-height: calc(var(--header-height) + 4px);
@@ -57,41 +53,32 @@ header h1 {
 
 header h1 span {
   display: inline-block;
-  height: var(--header-height);
   width: 100px;
+  height: var(--header-height);
+  overflow: hidden;
   background: url(/images/logo.png) no-repeat -2px center var(--white);
   text-indent: -999em;
   vertical-align: middle;
 }
 
-header::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 /* Snippet grid */
 main {
-  padding: 0 var(--rhythm) var(--rhythm);
-}
-
-main::after {
-  content: "";
-  display: table;
-  clear: both;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: var(--rhythm) 2%;
+  padding-inline: var(--rhythm);
+  padding-block-end: var(--rhythm);
 }
 
 fieldset {
-  float: left;
-  width: 31%;
-  margin: 0 1% var(--rhythm);
+  margin: 0;
   padding: 0;
   border: 1px solid var(--black);
 }
 
 fieldset legend {
-  display: block;
-  margin: calc(var(--rhythm) / 2) 0 0 calc(var(--rhythm) / 2);
+  margin-block: calc(var(--rhythm) / 2) 0;
+  margin-inline: calc(var(--rhythm) / 2) 0;
   padding: 1%;
   border: 1px solid var(--black);
   font-size: 1.1em;
@@ -109,31 +96,32 @@ fieldset legend:focus {
 textarea {
   display: block;
   width: 100%;
-  margin: 0 auto;
   padding: 1%;
   border: none;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   font-size: 0.8em;
   line-height: 1.1em;
-  background: var(--white);
   color: var(--black);
+  background: var(--white);
   resize: vertical;
 }
 
 /* "Copied" toast */
 #copied {
   position: fixed;
-  top: calc(var(--rhythm) * 3);
-  left: 50%;
-  transform: translateX(-50%);
+  inset-block-start: calc(var(--rhythm) * 3);
+  inset-inline-start: 50%;
+  translate: -50% 0;
   padding: calc(var(--rhythm) / 2);
   border: 1px solid var(--gray-dark);
   border-radius: 4px;
-  background: var(--gray);
   color: var(--white);
+  background: var(--gray);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s linear, visibility 0.3s linear;
+  transition:
+    opacity 0.3s linear,
+    visibility 0.3s linear;
 }
 
 #copied.is-visible {
@@ -145,17 +133,15 @@ textarea {
   margin: 0;
 }
 
-/* Stack the grid on small screens (the original was desktop-only). */
+/* Narrower viewports drop the column count (the original was desktop-only). */
 @media (max-width: 900px) {
-  fieldset {
-    width: 48%;
+  :root {
+    --columns: 2;
   }
 }
 
 @media (max-width: 600px) {
-  fieldset {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+  :root {
+    --columns: 1;
   }
 }
