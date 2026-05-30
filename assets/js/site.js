@@ -50,27 +50,4 @@
       }
     });
   });
-
-  // --- Headroom: hide the bar on scroll down, reveal on scroll up ----------
-  var header = document.querySelector("header");
-  if (header) {
-    var lastY = window.pageYOffset;
-    header.classList.add("is-pinned");
-
-    window.addEventListener(
-      "scroll",
-      function () {
-        var y = window.pageYOffset;
-        if (y > lastY && y > header.offsetHeight) {
-          header.classList.remove("is-pinned");
-          header.classList.add("is-unpinned");
-        } else {
-          header.classList.remove("is-unpinned");
-          header.classList.add("is-pinned");
-        }
-        lastY = y;
-      },
-      { passive: true }
-    );
-  }
 })();
