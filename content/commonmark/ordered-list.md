@@ -1,6 +1,6 @@
 ---
-title: "Ordered List: Short"
-weight: 50
+title: "Ordered List"
+weight: 70
 ---
 1. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 2. Aliquam tincidunt mauris eu risus.
