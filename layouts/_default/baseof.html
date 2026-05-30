@@ -13,6 +13,7 @@
     {{ with site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
 
     <link rel="icon" href="{{ "favicon.ico" | relURL }}">
+    <link rel="canonical" href="{{ if .IsHome }}{{ "/commonmark/" | absURL }}{{ else }}{{ .Permalink }}{{ end }}">
 
     {{ with resources.Get "css/style.css" }}
         {{ if hugo.IsServer }}
@@ -25,10 +26,10 @@
     {{ end }}
 </head>
 
-<body>
+<body{{ if .IsHome }} data-landing{{ end }}>
     {{- $current := cond .IsHome "commonmark" .Section -}}
     {{- $flavours := slice
-        (dict "slug" "commonmark" "label" "CommonMark" "url" "/")
+        (dict "slug" "commonmark" "label" "CommonMark" "url" "/commonmark/")
         (dict "slug" "gfm"        "label" "GFM"        "url" "/gfm/")
         (dict "slug" "goldmark"   "label" "Goldmark"   "url" "/goldmark/")
         (dict "slug" "whatsapp"   "label" "WhatsApp"   "url" "/whatsapp/")
@@ -45,6 +46,13 @@
                 <li><a href="{{ .url | relURL }}" data-flavour="{{ .slug }}"{{ if eq .slug $current }} aria-current="page"{{ end }}>{{ .label }}</a></li>
                 {{ end }}
             </ul>
+            <span class="key">
+                <button type="button" class="key__toggle" aria-label="What do the box colours mean?">?</button>
+                <span class="key__panel" role="tooltip">
+                    <span class="key__row"><span class="key__swatch key__swatch--unique"></span> Unique to this flavour</span>
+                    <span class="key__row"><span class="key__swatch key__swatch--different"></span> Different syntax</span>
+                </span>
+            </span>
         </nav>
     </header>
 
