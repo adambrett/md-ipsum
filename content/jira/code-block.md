@@ -1,6 +1,7 @@
 ---
 title: "Code Block"
 weight: 84
+tier: different
 ---
 {code:java}
 String s = "Markdown Ipsum";

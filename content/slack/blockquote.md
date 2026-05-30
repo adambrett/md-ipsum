@@ -1,6 +1,7 @@
 ---
 title: "Blockquote"
 weight: 64
+tier: different
 ---
 > Lorem ipsum dolor sit amet.
 
