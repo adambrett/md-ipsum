@@ -1,11 +1,13 @@
 ---
-title: "Unordered List: Navigation"
-weight: 110
+title: "Navigation List with Titles"
+weight: 80
 ---
-&lt;nav&gt;
-  * [Lorem](#nowhere &quot;Lorum ipsum dolor sit amet&quot;)
-  * [Aliquam](#nowhere &quot;Aliquam tincidunt mauris eu risus&quot;)
-  * [Morbi](#nowhere &quot;Morbi in sem quis dui placerat ornare&quot;)
-  * [Praesent](#nowhere &quot;Praesent dapibus, neque id cursus faucibus&quot;)
-  * [Pellentesque](#nowhere &quot;Pellentesque fermentum dolor&quot;)
-&lt;/nav&gt;
+<nav>
+
+- [Lorem](#nowhere "Lorem ipsum dolor sit amet")
+- [Aliquam](#nowhere "Aliquam tincidunt mauris eu risus")
+- [Morbi](#nowhere "Morbi in sem quis dui placerat ornare")
+- [Praesent](#nowhere "Praesent dapibus, neque id cursus faucibus")
+- [Pellentesque](#nowhere "Pellentesque fermentum dolor")
+
+</nav>

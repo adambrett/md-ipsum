@@ -2,7 +2,7 @@
 {{ range $i, $ipsum := (site.GetPage "/ipsums").Pages }}
 <fieldset>
     <legend tabindex="0" role="button" aria-controls="ipsum{{ $i }}" data-copy="ipsum{{ $i }}">{{ $ipsum.Title }}</legend>
-    <textarea id="ipsum{{ $i }}" rows="10" cols="50" spellcheck="false">{{ $ipsum.RawContent | safeHTML }}</textarea>
+    <textarea id="ipsum{{ $i }}" rows="10" cols="50" spellcheck="false">{{ $ipsum.RawContent }}</textarea>
 </fieldset>
 {{ end }}
 {{ end }}
