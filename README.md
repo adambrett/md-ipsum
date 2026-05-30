@@ -2,8 +2,6 @@
 
 Copy snippets of markdown and paste them into your project.
 
-- **Website**: `https://md-ipsum.adbr.dev/`
-
 ## Description
 
 md-ipsum is a single static page of placeholder markdown — paragraphs, lists,
@@ -21,8 +19,7 @@ links work and the page is fully static.
 
 ## Development
 
-Requires [Hugo extended](https://gohugo.io/) `0.147.2` (pinned in
-`.tool-versions`):
+Requires [Hugo extended](https://gohugo.io/) `0.147.2`:
 
 ```bash
 brew install hugo
