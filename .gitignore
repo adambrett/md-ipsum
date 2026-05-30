@@ -12,3 +12,6 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
+
+# Tooling (local only)
+.tool-versions
