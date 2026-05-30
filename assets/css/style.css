@@ -133,6 +133,18 @@ textarea {
   margin: 0;
 }
 
+/* Site footer */
+.site-footer {
+  padding-block: var(--rhythm);
+  padding-inline: var(--rhythm);
+  color: var(--gray-dark);
+  text-align: right;
+}
+
+.site-footer a {
+  color: inherit;
+}
+
 /* Narrower viewports drop the column count (the original was desktop-only). */
 @media (max-width: 900px) {
   :root {
