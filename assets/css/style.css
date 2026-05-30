@@ -1,13 +1,11 @@
-/* Markdown Ipsum — ported from the original Sculpin theme. */
-
 :root {
   --black: #111;
   --white: #fff;
   --gray: #aaa;
-  --gray-dark: #606060;
 
-  --rhythm: 24px; /* typecsset "magic number" */
-  --header-height: 60px;
+  --accent: #ff4136;
+
+  --rhythm: 24px;
   --columns: 3;
 }
 
@@ -24,44 +22,42 @@ html {
 
 body {
   margin: 0;
-  padding-block-start: calc(var(--header-height) + (var(--rhythm) * 2));
   font-family: Georgia, Cambria, "Times New Roman", Times, serif;
   color: var(--black);
   background: var(--white);
 }
 
-/* Fixed top bar */
-header {
+body::before {
+  content: "";
   position: fixed;
   inset: 0 0 auto;
-  z-index: 10;
-  padding-block: calc(var(--rhythm) / 2);
+  z-index: 50;
+  height: 5px;
+  background: var(--accent);
+}
+
+header {
+  padding-block: var(--rhythm);
   padding-inline: var(--rhythm);
   background: var(--black);
-  transition: transform 0.3s linear;
 }
 
-header.is-unpinned {
-  transform: translateY(-100%);
-}
-
-header h1 {
+.site-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5ch;
   margin: 0;
   color: var(--white);
-  line-height: calc(var(--header-height) + 4px);
+  font-size: 1.5rem;
+  line-height: 1;
 }
 
-header h1 span {
-  display: inline-block;
-  width: 100px;
-  height: var(--header-height);
-  overflow: hidden;
-  background: url(/images/logo.png) no-repeat -2px center var(--white);
-  text-indent: -999em;
-  vertical-align: middle;
+.site-nav__logo {
+  width: auto;
+  height: 1.5em;
+  filter: invert(1);
 }
 
-/* Snippet grid */
 main {
   display: grid;
   grid-template-columns: repeat(var(--columns), 1fr);
@@ -106,14 +102,13 @@ textarea {
   resize: vertical;
 }
 
-/* "Copied" toast */
 #copied {
   position: fixed;
   inset-block-start: calc(var(--rhythm) * 3);
   inset-inline-start: 50%;
   translate: -50% 0;
   padding: calc(var(--rhythm) / 2);
-  border: 1px solid var(--gray-dark);
+  border: 1px solid var(--gray);
   border-radius: 4px;
   color: var(--white);
   background: var(--gray);
@@ -133,11 +128,10 @@ textarea {
   margin: 0;
 }
 
-/* Site footer */
 .site-footer {
   padding-block: var(--rhythm);
   padding-inline: var(--rhythm);
-  color: var(--gray-dark);
+  color: var(--gray);
   text-align: right;
 }
 
@@ -145,7 +139,6 @@ textarea {
   color: inherit;
 }
 
-/* Narrower viewports drop the column count (the original was desktop-only). */
 @media (max-width: 900px) {
   :root {
     --columns: 2;
