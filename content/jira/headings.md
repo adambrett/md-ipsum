@@ -1,6 +1,7 @@
 ---
 title: "Headings"
 weight: 60
+tier: different
 ---
 h1. Header Level 1
 h2. Header Level 2
