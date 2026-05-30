@@ -1,0 +1,7 @@
+{{- /* Renders a flavour section's snippets as the copy-paste grid. Context: a section page. */ -}}
+{{ range $i, $ipsum := .Pages }}
+<fieldset>
+    <legend tabindex="0" role="button" aria-controls="ipsum{{ $i }}" data-copy="ipsum{{ $i }}">{{ $ipsum.Title }}</legend>
+    <textarea id="ipsum{{ $i }}" rows="10" cols="50" spellcheck="false">{{ $ipsum.RawContent }}</textarea>
+</fieldset>
+{{ end }}

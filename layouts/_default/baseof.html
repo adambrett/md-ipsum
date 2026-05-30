@@ -26,11 +26,25 @@
 </head>
 
 <body>
+    {{- $current := cond .IsHome "commonmark" .Section -}}
+    {{- $flavours := slice
+        (dict "slug" "commonmark" "label" "CommonMark" "url" "/")
+        (dict "slug" "gfm"        "label" "GFM"        "url" "/gfm/")
+        (dict "slug" "goldmark"   "label" "Goldmark"   "url" "/goldmark/")
+        (dict "slug" "whatsapp"   "label" "WhatsApp"   "url" "/whatsapp/")
+        (dict "slug" "slack"      "label" "Slack"      "url" "/slack/")
+        (dict "slug" "discord"    "label" "Discord"    "url" "/discord/")
+        (dict "slug" "jira"       "label" "JIRA"       "url" "/jira/") -}}
     <header>
         <nav class="site-nav" aria-label="Primary">
             <h1 class="site-nav__brand">
                 <img class="site-nav__logo" src="{{ "images/logo.png" | relURL }}" alt="Markdown" width="104" height="64"> Ipsum
             </h1>
+            <ul class="site-nav__flavours">
+                {{ range $flavours }}
+                <li><a href="{{ .url | relURL }}" data-flavour="{{ .slug }}"{{ if eq .slug $current }} aria-current="page"{{ end }}>{{ .label }}</a></li>
+                {{ end }}
+            </ul>
         </nav>
     </header>
 
