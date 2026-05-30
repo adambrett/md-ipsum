@@ -4,6 +4,8 @@
   --gray: #aaa;
 
   --accent: #111;
+  --gold: #ffdc00;
+  --red: #ff4136;
 
   --rhythm: 24px;
   --columns: 3;
@@ -91,6 +93,76 @@ header {
   text-underline-offset: 0.3em;
 }
 
+.key {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.key__toggle {
+  width: 1.6em;
+  height: 1.6em;
+  padding: 0;
+  border: 1px solid var(--gray);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--gray);
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.key__toggle:hover,
+.key__toggle:focus-visible {
+  border-color: var(--white);
+  color: var(--white);
+  outline: none;
+}
+
+.key__panel {
+  position: absolute;
+  inset-block-start: calc(100% + 8px);
+  inset-inline-end: 0;
+  z-index: 20;
+  display: none;
+  width: max-content;
+  max-width: 16rem;
+  padding: calc(var(--rhythm) / 2);
+  border: 1px solid var(--black);
+  background: var(--white);
+  color: var(--black);
+  font-size: 0.85rem;
+}
+
+.key:hover .key__panel,
+.key:focus-within .key__panel {
+  display: block;
+}
+
+.key__row {
+  display: flex;
+  align-items: center;
+  gap: 0.5ch;
+}
+
+.key__row + .key__row {
+  margin-block-start: calc(var(--rhythm) / 4);
+}
+
+.key__swatch {
+  flex: none;
+  width: 0.9em;
+  height: 0.9em;
+}
+
+.key__swatch--unique {
+  background: var(--gold);
+}
+
+.key__swatch--different {
+  background: var(--red);
+}
+
 main {
   display: grid;
   grid-template-columns: repeat(var(--columns), 1fr);
@@ -120,6 +192,14 @@ fieldset legend:focus {
   background: var(--black);
   color: var(--white);
   outline: none;
+}
+
+.is-unique {
+  border: 2px solid var(--gold);
+}
+
+.is-different {
+  border: 2px solid var(--red);
 }
 
 textarea {

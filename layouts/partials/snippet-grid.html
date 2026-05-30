@@ -1,6 +1,9 @@
-{{- /* Renders a flavour section's snippets as the copy-paste grid. Context: a section page. */ -}}
-{{ range $i, $ipsum := .Pages }}
-<fieldset>
+{{- /* Flavour grid: unique first, then different-syntax, then the shared basics. Context: a section page. */ -}}
+{{- $unique := where .Pages "Params.tier" "unique" -}}
+{{- $different := where .Pages "Params.tier" "different" -}}
+{{- $standard := where (where .Pages "Params.tier" "!=" "unique") "Params.tier" "!=" "different" -}}
+{{ range $i, $ipsum := ($unique | append $different | append $standard) }}
+<fieldset{{ with $ipsum.Params.tier }}{{ if eq . "unique" }} class="is-unique"{{ else if eq . "different" }} class="is-different"{{ end }}{{ end }}>
     <legend tabindex="0" role="button" aria-controls="ipsum{{ $i }}" data-copy="ipsum{{ $i }}">{{ $ipsum.Title }}</legend>
     <textarea id="ipsum{{ $i }}" rows="10" cols="50" spellcheck="false">{{ $ipsum.RawContent }}</textarea>
 </fieldset>
