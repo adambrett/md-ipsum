@@ -1,11 +1,13 @@
 ---
-title: "Standard Navigation List"
-weight: 90
+title: "Navigation List"
+weight: 70
 ---
-&lt;nav&gt;
-  * [Lorem](#)
-  * [Aliquam](#)
-  * [Morbi](#)
-  * [Praesent](#)
-  * [Pellentesque](#)
-&lt;/nav&gt;
+<nav>
+
+- [Lorem](#)
+- [Aliquam](#)
+- [Morbi](#)
+- [Praesent](#)
+- [Pellentesque](#)
+
+</nav>
