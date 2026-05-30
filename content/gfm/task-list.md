@@ -1,7 +1,7 @@
 ---
 title: "Task List"
 weight: 88
-tier: unique
+tier: different
 ---
 - [x] Lorem ipsum dolor sit amet
 - [x] Aliquam tincidunt mauris eu risus

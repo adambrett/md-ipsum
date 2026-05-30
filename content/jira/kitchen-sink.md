@@ -1,7 +1,6 @@
 ---
 title: "Kitchen Sink"
 weight: 100
-tier: different
 ---
 h1. JIRA Wiki Markup
 

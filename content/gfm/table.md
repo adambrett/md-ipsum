@@ -1,7 +1,7 @@
 ---
 title: "Table"
 weight: 86
-tier: unique
+tier: different
 ---
 | Lorem | Ipsum | Dolor |
 | :---- | :---: | ----: |

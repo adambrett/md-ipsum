@@ -1,7 +1,7 @@
 ---
 title: "Footnote"
 weight: 90
-tier: unique
+tier: different
 ---
 Pellentesque habitant morbi tristique[^1] senectus et netus.
 
