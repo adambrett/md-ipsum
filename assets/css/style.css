@@ -7,7 +7,7 @@
   /* Accents — fixed across themes. */
   --accent: #111;
   --gold: #ffdc00;
-  --red: #ff4136;
+  --blue: #0074d9;
 
   /* Light theme. */
   --bar-bg: #111;
@@ -184,7 +184,7 @@ header {
 }
 
 .key__swatch--different {
-  background: var(--red);
+  background: var(--blue);
 }
 
 .site-nav__burger {
@@ -280,7 +280,7 @@ fieldset legend:focus {
 }
 
 .is-different {
-  border: 2px solid var(--red);
+  border: 2px solid var(--blue);
 }
 
 textarea {

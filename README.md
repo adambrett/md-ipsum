@@ -23,7 +23,7 @@ Snippets are grouped by **flavour**, because "markdown" isn't one thing:
 | **JIRA** | Atlassian wiki markup (`h1.`, `{code}`, `\|\|tables\|\|`, `^sup^`) - not actually markdown but parts are borrowed. |
 
 Within each flavour, snippets are ordered with unique first, followed by styles that are different to other flavours, then the remainder are simplest → complex. Unique and different snippets are **colour-coded**:
-gold = a capability unique to that flavour, red = a shared idea written with
+gold = a capability unique to that flavour, blue = a shared idea written with
 different syntax (the gotchas), uncoloured = the same in all formats. A `?`
 in the header explains the key.
 
@@ -57,7 +57,7 @@ Drop a new `content/<flavour>/<slug>.md`:
 ---
 title: "My Snippet"
 weight: 130
-tier: different   # optional: "unique" (gold) or "different" (red)
+tier: different   # optional: "unique" (gold) or "different" (blue)
 ---
 Your raw markdown here.
 ```
