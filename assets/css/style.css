@@ -61,6 +61,16 @@ body::before {
   background: var(--accent);
 }
 
+@media (max-width: 63.99rem) {
+  body {
+    border-top: 5px solid var(--accent);
+  }
+
+  body::before {
+    display: none;
+  }
+}
+
 header {
   padding-block: var(--rhythm);
   padding-inline: var(--rhythm);
