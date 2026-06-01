@@ -1,5 +1,5 @@
 ---
-title: "Subscript & Superscript"
+title: "Superscript & Subscript"
 weight: 52
 tier: different
 ---

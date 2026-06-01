@@ -6,5 +6,5 @@ tier: different
 Markdown
 : A lightweight markup language.
 
-Goldmark
-: The CommonMark parser that powers Hugo.
+Pandoc
+: A universal document converter.

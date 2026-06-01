@@ -16,6 +16,7 @@ Snippets are grouped by **flavour**, because "markdown" isn't one thing:
 | **CommonMark** | The [reference spec](https://commonmark.org/).                                                                     |
 | **GFM** | GitHub Flavored Markdown - CommonMark plus tables, task lists, strikethrough, autolinks, footnotes.                |
 | **Goldmark** | Hugo's renderer - GFM plus definition lists and a typographer.                                                     |
+| **Pandoc** | The [universal document converter](https://pandoc.org/)'s Markdown, aimed at academic & print output (LaTeX/PDF, DOCX) - everything Goldmark has, plus citations & bibliographies, math, fenced divs, cross-references, and grid tables. |
 | **WhatsApp** | Chat formatting: `*bold*`, `_italic_`, `~strike~`, ```` ```mono``` ````.                                           |
 | **Slack** | mrkdwn: `*bold*`, `_italic_`, `~strike~`, `<url\|text>` links.                                                     |
 | **Discord** | `**bold**`, `__underline__`, `~~strike~~`, `\|\|spoiler\|\|`, headings.                                            |
