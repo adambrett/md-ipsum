@@ -69,10 +69,8 @@ natural markdown - no entity-escaping needed. Omit `tier` for an ordinary
 
 ## License
 
-Dual-licensed:
+md-ipsum is licensed under [BSD-3-Clause with Commons Clause](./LICENSE).
 
-- **Snippets** (`content/`) — [BSD-3-Clause](./content/LICENSE). Use them in any
-  project, including commercial ones.
-- **The site** (templates, styles, scripts, design) —
-  [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Fork and
-  contribute freely; don't run a commercial clone.
+You may use the snippets inside commercial products. You may not sell, host, or
+repackage md-ipsum itself, or a substantially similar snippet service, without
+permission.
